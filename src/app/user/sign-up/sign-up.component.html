@@ -1,0 +1,30 @@
+<div class="container">
+<h3>Sign up</h3>
+<form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+  <div class="form-group">
+    <input type="test" class="form-control" placeholder="Nom complet"
+           #nom="ngModel" [(ngModel)]="userService.selectedUser.nom" name="nom">
+  </div>
+
+  <div class="form-group">
+    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email"
+           #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email">
+           
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" placeholder="Password"
+           #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Valider</button>
+</form>
+<br><br>
+<div class="alert alert-success" role="alert" *ngIf="showSuccessMessage">
+  Ultisateur ajouté avec succès
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="serverErrorMessage">
+{{serverErrorMessage}}
+</div>
+</div>
